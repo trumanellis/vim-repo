@@ -17,6 +17,8 @@ Bundle 'derekwyatt/vim-fswitch'
 Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'scrooloose/nerdtree'
+Bundle 'corntrace/bufexplorer'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-scripts/Wombat'
 Bundle 'vim-scripts/CSApprox'
 " non github repos
@@ -32,6 +34,12 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
+
+" Reload vimrc on save
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
 
 syntax on
 set nowrap
