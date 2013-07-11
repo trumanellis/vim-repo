@@ -20,6 +20,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'corntrace/bufexplorer'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Rip-Rip/clang_complete'
+Bundle 'vimez/vim-showmarks'
 " Bundle 'justmao945/vim-clang'
 " Bundle 'vim-scripts/AutoComplPop'
 " Bundle 'Valloric/YouCompleteMe'
@@ -81,6 +82,7 @@ set guioptions-=m
 set mouse=c
 " Hide GVim menu
 set guioptions-=T
+set ruler
 
 " Search settings
 nnoremap <space> :noh<return><space>
@@ -243,3 +245,19 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 let g:clang_library_path='/g/g14/ellis35/.local/lib'
 
+" Get clang_complete and neocomplcache to play nicely
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.c =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objcpp =
+            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_use_library = 1
