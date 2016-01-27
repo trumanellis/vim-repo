@@ -20,13 +20,15 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'corntrace/bufexplorer'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Rip-Rip/clang_complete'
-Bundle 'vimez/vim-showmarks'
+" Bundle 'vimez/vim-showmarks'
 " Bundle 'justmao945/vim-clang'
 " Bundle 'vim-scripts/AutoComplPop'
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-scripts/Wombat'
-Bundle 'vim-scripts/CSApprox'
+Bundle 'michalbachowski/vim-wombat256mod'
+" Bundle 'vim-scripts/CSApprox'
 Bundle 'kien/ctrlp.vim'
+Bundle 'mbbill/undotree'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
@@ -59,7 +61,7 @@ set noswapfile     "no swap files
 
 " Colorscheme
 set t_Co=256
-colorscheme wombat
+colorscheme wombat256mod
 
 " Movement settings
 map <c-j> <c-w>j
@@ -93,8 +95,8 @@ nmap . .`[
 " Indent Settings
 set expandtab
 set smarttab
-set tabstop=3
-set shiftwidth=3
+set tabstop=2
+set shiftwidth=2
 set autoindent
 set smartindent
 
@@ -108,7 +110,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
 set showmode
-set textwidth=78
+set textwidth=1000
 
 " Abbreviations
 ab pymain if __name__=="__main__":
@@ -243,7 +245,7 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-let g:clang_library_path='/g/g14/ellis35/.local/lib'
+" let g:clang_library_path='/g/g14/ellis35/.local/lib'
 
 " Get clang_complete and neocomplcache to play nicely
 if !exists('g:neocomplcache_force_omni_patterns')
